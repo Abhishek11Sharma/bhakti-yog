@@ -2,27 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
-:root {
---bg: #ffffff;
---text: #111827;
-}
-
-
-.dark {
---bg: #0b1020;
---text: #e6eef8;
-}
-
-
-html, body, #__next {
-height: 100%;
-}
-
-
+html,
 body {
-background: var(--bg);
-color: var(--text);
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }

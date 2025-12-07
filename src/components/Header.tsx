@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Sun, Moon, Menu, X } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
-  const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);
 
   const navItems = [
@@ -41,25 +39,12 @@ export default function Header() {
             </button>
           ))}
 
-          {/* Theme Toggle */}
-          <button
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+          {/* Theme Toggle removed */}
         </nav>
 
         {/* Mobile menu button and theme toggle */}
         <div className="md:hidden flex items-center gap-2">
-          <button
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+          {/* Theme toggle removed */}
           <button
             className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition"
             onClick={() => setOpen(!open)}

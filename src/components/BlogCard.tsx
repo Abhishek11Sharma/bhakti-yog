@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Blog } from "@/app/blogs/data";
 
 interface Props {
@@ -19,12 +20,11 @@ export default function BlogCard({ blog, index }: Props) {
         {blog.title}
       </h2>
       <p className="text-gray-700 dark:text-gray-300 mb-4">{blog.excerpt}</p>
-      <a
-        href={blog.link}
-        className="text-purple-700 dark:text-purple-400 font-semibold hover:underline"
-      >
+
+      {/* Update Link component */}
+      <Link href={blog.link} className="text-purple-700 dark:text-purple-400 font-semibold hover:underline">
         Read More
-      </a>
+      </Link>
     </motion.div>
   );
 }

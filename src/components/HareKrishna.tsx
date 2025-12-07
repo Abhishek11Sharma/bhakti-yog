@@ -32,53 +32,80 @@ export default function HareKrishnaPremium() {
         </motion.div>
       </div>
 
-      {/* ---------------------- HALO GOLDEN PARTICLES ---------------------- */}
-      {haloParticles.map((_, i) => (
-        <motion.div
-          key={i}
-          initial={{ rotate: 0, x: 0, y: 0 }}
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 12 + Math.random() * 6,
-            repeat: Infinity,
-            ease: "linear",
-            delay: i * 0.2,
-          }}
-          className="absolute w-[6px] h-[6px] bg-yellow-700 rounded-full shadow-lg blur-sm"
-          style={{
-            top: "50%",
-            left: "50%",
-            marginLeft: `${Math.cos((i / haloParticles.length) * Math.PI * 2) * 200}px`,
-            marginTop: `${Math.sin((i / haloParticles.length) * Math.PI * 2) * 200}px`,
-          }}
-        />
-      ))}
+      {/* ---------------------- HALO GOLDEN PARTICLES (deterministic) ---------------------- */}
+      {haloParticles.map((_, i) => {
+        const angle = (i / haloParticles.length) * Math.PI * 2;
+        const radius = 200 + (i % 6) * 6; // small deterministic variation
+        return (
+          <motion.div
+            key={i}
+            initial={{ rotate: 0, x: 0, y: 0 }}
+            animate={{ rotate: 360 }}
+            transition={{
+              duration: 12 + i * 0.5,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 0.2,
+            }}
+            className="absolute w-[6px] h-[6px] bg-yellow-700 rounded-full shadow-lg blur-sm"
+            style={{
+              top: "50%",
+              left: "50%",
+              marginLeft: `${Math.cos(angle) * radius}px`,
+              marginTop: `${Math.sin(angle) * radius}px`,
+            }}
+          />
+        );
+      })}
 
-      {/* ---------------------- FLOATING LOTUS PETALS ---------------------- */}
-      {petals.map((_, i) => (
-        <motion.div
-          key={i}
-          initial={{ x: Math.random() * 800 - 400, y: Math.random() * 400 - 200, opacity: 0, scale: Math.random() * 0.6 + 0.4 }}
-          animate={{ x: Math.random() * 800 - 400, y: Math.random() * 400 - 200, opacity: Math.random() * 0.7 + 0.3, rotate: Math.random() * 180 }}
-          transition={{ duration: 6 + Math.random() * 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute text-pink-300/80 text-2xl"
-        >
-          🌸
-        </motion.div>
-      ))}
+      {/* ---------------------- FLOATING LOTUS PETALS (deterministic) ---------------------- */}
+      {petals.map((_, i) => {
+        const angle = (i / petals.length) * Math.PI * 2;
+        const radius = 180 + (i % 5) * 14;
+        const rotateStart = (i % 3) * 40; // deterministic rotation start
+        const opacity = 0.35 + (i % 4) * 0.12;
+        const scale = 0.6 + (i % 3) * 0.15;
+
+        return (
+          <motion.div
+            key={i}
+            initial={{ rotate: rotateStart, opacity: 0 }}
+            animate={{ rotate: rotateStart + 360, opacity: opacity }}
+            transition={{ duration: 8 + (i % 6), repeat: Infinity, ease: "linear", delay: i * 0.25 }}
+            className="absolute text-pink-300/80 text-2xl"
+            style={{
+              top: "50%",
+              left: "50%",
+              marginLeft: `${Math.cos(angle) * radius}px`,
+              marginTop: `${Math.sin(angle) * radius}px`,
+              transformOrigin: "center",
+              scale: scale,
+            }}
+          >
+            🌸
+          </motion.div>
+        );
+      })}
 
       {/* ---------------------- DIVINE FLOATING ORBS ---------------------- */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0.1, 0.4, 0.1], scale: [1, 1.3, 1], x: [0, Math.random() * 200 - 100, 0], y: [0, Math.random() * 200 - 100, 0] }}
-            transition={{ duration: 6 + i * 2, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute w-40 h-40 bg-purple-300/20 rounded-full blur-3xl"
-            style={{ top: `${Math.random() * 80}%`, left: `${Math.random() * 80}%` }}
-          />
-        ))}
+        {[...Array(6)].map((_, i) => {
+          // deterministic positions for orbs
+          const top = 15 + (i * 17) % 70;
+          const left = 5 + (i * 31) % 85;
+          const xOffset = ((i % 3) - 1) * 30; // -30,0,30
+          const yOffset = ((i % 2) - 0.5) * 60; // -30 or 30
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.1, 0.4, 0.1], scale: [1, 1.25, 1], x: [0, xOffset, 0], y: [0, yOffset, 0] }}
+              transition={{ duration: 6 + i * 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute w-40 h-40 bg-purple-300/20 rounded-full blur-3xl"
+              style={{ top: `${top}%`, left: `${left}%` }}
+            />
+          );
+        })}
       </div>
 
       {/* ---------------------- RADIANT LIGHT PULSE ---------------------- */}

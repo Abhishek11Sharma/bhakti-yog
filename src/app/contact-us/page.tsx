@@ -12,7 +12,8 @@ export default function ContactPage() {
 
         {/* Professional Message */}
         <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 text-center">
-          Hello! I am <span className="font-semibold">Abhishek Sharma</span>, a devoted follower of <span className="font-semibold">Shree Radha</span>. 
+          Hello! I am <span className="font-semibold">Abhishek Sharma</span>, 
+          {/* a devoted follower of <span className="font-semibold">Shree Radha</span>.  */}
           I am passionate about sharing devotional insights and connecting with fellow devotees.
         </p>
 

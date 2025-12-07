@@ -1,11 +1,6 @@
 "use client";
 
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-
+// Theme feature removed. Keep a passthrough provider so imports remain valid.
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <NextThemesProvider attribute="class" defaultTheme="light">
-      {children}
-    </NextThemesProvider>
-  );
+  return <>{children}</>;
 }

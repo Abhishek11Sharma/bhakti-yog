@@ -20,7 +20,7 @@ export default function Header() {
     <header className="w-full shadow-md bg-white dark:bg-gray-900 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-purple-700 dark:text-purple-300">
-          Spiritual Path
+          Spiritual Marg
         </h1>
 
         {/* Desktop Menu */}

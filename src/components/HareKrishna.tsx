@@ -121,7 +121,7 @@ export default function HareKrishnaPremium() {
 
         {/* TITLE */}
         <motion.h1 className="text-5xl md:text-6xl font-extrabold text-purple-800 dark:text-purple-300 drop-shadow-[0_0_25px_rgba(255,230,80,0.7)] whitespace-nowrap" initial={{ opacity: 0, y: 30, filter: "blur(4px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 1 }}>
-          Bhakti Yog — The Path of Devotion
+          Spiritual Path — The Path of Devotion
         </motion.h1>
 
         {/* HARE KRISHNA ANIMATION */}

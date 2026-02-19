@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-  title: "Bhakti Yog",
+  title: "Spiritual Path",
   description: "The Path of Devotion",
 };
 

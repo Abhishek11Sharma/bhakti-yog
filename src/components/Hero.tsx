@@ -9,7 +9,7 @@ export default function Hero() {
         <section className="min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-bhakti-50 to-white dark:from-gray-900 dark:to-gray-800">
             <div className="max-w-5xl mx-auto text-center px-4">
                 <motion.h2 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl md:text-6xl font-extrabold text-bhakti-700 dark:text-bhakti-300">
-                    Spiritual Path — Walk the path of devotion
+                    Spiritual Marg — Walk the path of devotion
                 </motion.h2>
 
 
